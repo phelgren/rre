@@ -1,0 +1,25 @@
+/*   **************************************************************************/
+/*   ** RREC - CL Wrapper for Report Generator adds Classpath and run test pgm */
+/*   **************************************************************************/
+/*   **  Product of Value Added Software, Inc                                   */
+/*   **************************************************************************/
+/*   **     Written: 04/16/07 by: P. Helgren                                  */
+/*   **  01 Revised: 01/04/09 by: P. Helgren________  Ref: ________           */
+/*                   Updated jars for new Jasper Reports version              */
+/*       02 Revised: 07/17/2021 by: Pete Helgren                              */
+/*                   Updated and consolidated jars to support Jasper Reports  */
+/*                   version 6.17.0                                           */
+/*   **              _______________________________________________________  */
+/*   **************************************************************************/
+             PGM        PARM(&PGMTOCALL &OUTPUTTYPE)
+
+             DCL        VAR(&PGMTOCALL) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&OUTPUTTYPE) TYPE(*CHAR) LEN(4)
+
+             ADDENVVAR  ENVVAR(CLASSPATH) +
+                          VALUE('/rre/lib/RPGReportEngine.jar:/rre/lib/jasperreports-6.17.0.jar:+
+                          /rre/lib/activation.jar:/rre/lib/rrejars.jar') REPLACE(*YES)
+
+             CALL       PGM(&PGMTOCALL) PARM(&OUTPUTTYPE)
+
+             ENDPGM

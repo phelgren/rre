@@ -1,0 +1,36 @@
+/*   **************************************************************************/
+/*   ** RREC - CL Wrapper for Report Generator adds Classpath and run test pgm */
+/*   **************************************************************************/
+/*   **  Product of Value Added Software, Inc                                   */
+/*   **************************************************************************/
+/*   **     Written: 04/16/07 by: P. Helgren                                  */
+/*   **  01 Revised: 01/04/09 by: P. Helgren________  Ref: ________           */
+/*                   Updated jars for new iText  Reports version              */
+/*   **  02 Revised  04/26/2018   P. Helgren                                  */
+/*                   Updated jars for Jasper REports 6.5.1                    */
+/*   **              _______________________________________________________  */
+/*   **************************************************************************/
+             PGM        PARM(&PGMTOCALL)
+
+             DCL        VAR(&PGMTOCALL) TYPE(*CHAR) LEN(10)
+
+ADDENVVAR  ENVVAR(CLASSPATH) +
+             VALUE('/rre/lib/RPGReportEngine.jar:/rre/lib/commons-beanutils-1.9.3.jar:/rre/lib/c+
+             ommons-collections-3.2.2.jar:/rre/lib/commons-digester-2.1.jar:/rre/lib/commons-log+
+             ging-1.2.jar:/rre/lib/iText-2.1.7.jar:/rre/lib/jasperreports-6.5.1.jar:/rre/lib/jco+
+             mmon-1.0.15.jar:/rre/lib/jt400.jar:/rre/lib/groovy-all-1.8.9.jar:/rre/lib/commons-j+
+             avaflow.jar:/rre/lib/jfreechart-1.0.12.jar:/rre/lib/jxl.jar:/rre/lib/poi-3.14.jar:/+
+             rre/lib/mail.jar:/rre/lib/mailapi.jar:/rre/lib/activation.jar:/rre/lib/mysql-connec+
+             tor-java-5.1.5-bin.jar')
+MONMSG     MSGID(CPFA980) EXEC(CHGENVVAR ENVVAR(CLASSPATH) +
+             VALUE('/rre/lib/RPGReportEngine.jar:/rre/lib/commons-beanutils-1.9.3.jar:/rre/lib/c+
+             ommons-collections-3.2.2.jar:/rre/lib/commons-digester-2.1.jar:/rre/lib/commons-log+
+             ging-1.2.jar:/rre/lib/iText-2.1.7.jar:/rre/lib/jasperreports-6.5.1.jar:/rre/lib/jco+
+             mmon-1.0.15.jar:/rre/lib/jt400.jar:/rre/lib/groovy-all-1.8.9.jar:/rre/lib/commons-j+
+             avaflow.jar:/rre/lib/jfreechart-1.0.12.jar:/rre/lib/jxl.jar:/rre/lib/poi-3.14.jar:/+
+             rre/lib/mail.jar:/rre/lib/mailapi.jar:/rre/lib/activation.jar:/rre/lib/mysql-connec+
+             tor-java-5.1.5-bin.jar'))
+
+             CALL       PGM(&PGMTOCALL)
+
+             ENDPGM

@@ -1,0 +1,19 @@
+            /*          Demonstration of creating a standard report in SQLRPG */
+            /*                                                                */
+            /*          Basic demo to be used as a baseline for iText example */
+            /*          Added override to PDF Here                            */
+            /*                                                                */
+            /*          Copyright 2010 Pete Helgren                           */
+            /*          Value Added Software, Inc                             */
+            /*          1511 East Harvard Ave                                 */
+            /*          Salt Lake City, UT 84105                              */
+            /*          (801) 581-1154                                        */
+            /******************************************************************/
+             PGM
+
+             OVRPRTF    FILE(OEMPRPT) DEVTYPE(*AFPDS) SPLFNAME(SAMPLE) +
+                          TOSTMF('\Reports\output') WSCST(*PDF)
+
+             call       sample1
+
+             endpgm

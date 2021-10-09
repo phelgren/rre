@@ -1,0 +1,74 @@
+     A**************************************************************************
+     A*  OEMPRPT  - Sample Employee Report                                    **
+     A**************************************************************************
+     A*  Copyright Value Added Software, Inc.                                 **
+     A**************************************************************************
+     A*     Written: 04/19/10 by: P. Helgren                                  **
+     A**************************************************************************
+     A                                      REF(EMPLOYEE)
+     A          R HEADER
+     A                                      TEXT('Sample Employee Report')
+     A                                      SKIPB(001)
+     A                                      SPACEA(001)
+     A                                     1
+     A                                      'PROG: EMP.RPT'
+     A            ENAME         40A       36
+     A                                   124
+     A                                      'PAGE'
+     A                                    +1
+     A                                      PAGNBR
+     A                                      EDTCDE(Z)
+     A                                     1
+     A                                      'DATE:'
+     A                                      SPACEB(001)
+     A                                    +1
+     A                                      DATE
+     A                                      EDTCDE(Y)
+     A                                    36
+     A                                      'Sample Employee Report'
+     A                                     1
+     A                                      'TIME:'
+     A                                      SPACEB(001)
+     A                                    +1
+     A                                      TIME
+     A                                     1
+     A                                      '-----------------------------------
+     A                                      ------------------------------------
+     A                                      ------------------------------------
+     A                                      ----------------------------'
+     A                                      SPACEB(001)
+     A                                      SPACEA(001)
+     A                                     1
+     A                                      'Name   '
+     A                                    42
+     A                                      'Address '
+     A                                    74
+     A                                      'City'
+     A                                   100
+     A                                      'State'
+     A                                   110
+     A                                      'Zip'
+     A                                   118
+     A                                      '+4'
+     A                                     1
+     A                                      '-----------------------------------
+     A                                      ------------------------------------
+     A                                      ------------------------------------
+     A                                      ----------------------------'
+     A                                      SPACEB(001)
+     A          R DETAIL
+     A                                      TEXT('Employee Detail')
+     A                                      SPACEB(002)
+     A                                      SPACEA(001)
+     A            ENAME         40A  O     1
+     A            EMADD1    R        O    42
+     A                                      REFFLD(EMADD1 EMPLOYEE)
+     A            EMCITY    R        O    75
+     A                                      REFFLD(EMCITY EMPLOYEE)
+     A            EMST      R        O   102
+     A                                      REFFLD(EMST EMPLOYEE)
+     A            EMZIP1    R        O   110
+     A                                      REFFLD(EMZIP1 EMPLOYEE)
+     A            EMZIP2    R        O   117
+     A                                      REFFLD(EMZIP2 EMPLOYEE)
+     A
