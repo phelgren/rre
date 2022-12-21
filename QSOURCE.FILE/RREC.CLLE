@@ -1,25 +1,29 @@
-/*   **************************************************************************/
-/*   ** RREC - CL Wrapper for Report Generator adds Classpath and run test pgm */
-/*   **************************************************************************/
-/*   **  Product of Value Added Software, Inc                                   */
-/*   **************************************************************************/
-/*   **     Written: 04/16/07 by: P. Helgren                                  */
-/*   **  01 Revised: 01/04/09 by: P. Helgren________  Ref: ________           */
-/*                   Updated jars for new Jasper Reports version              */
-/*       02 Revised: 07/17/2021 by: Pete Helgren                              */
-/*                   Updated and consolidated jars to support Jasper Reports  */
-/*                   version 6.17.0                                           */
-/*   **              _______________________________________________________  */
-/*   **************************************************************************/
-             PGM        PARM(&PGMTOCALL &OUTPUTTYPE)
-
-             DCL        VAR(&PGMTOCALL) TYPE(*CHAR) LEN(10)
-             DCL        VAR(&OUTPUTTYPE) TYPE(*CHAR) LEN(4)
-
-             ADDENVVAR  ENVVAR(CLASSPATH) +
-                          VALUE('/rre/lib/RPGReportEngine.jar:/rre/lib/jasperreports-6.17.0.jar:+
-                          /rre/lib/activation.jar:/rre/lib/rrejars.jar') REPLACE(*YES)
-
-             CALL       PGM(&PGMTOCALL) PARM(&OUTPUTTYPE)
-
-             ENDPGM
+000100080416/*   **************************************************************************/
+000101080419/*   ** RREC - CL Wrapper for Report Generator adds Classpath and run test pgm */
+000102080416/*   **************************************************************************/
+000103080416/*   **  Product of Value Added Software, Inc                                   */
+000104080416/*   **************************************************************************/
+000105080416/*   **     Written: 04/16/07 by: P. Helgren                                  */
+000106090104/*   **  01 Revised: 01/04/09 by: P. Helgren________  Ref: ________           */
+000107090104/*                   Updated jars for new Jasper Reports version              */
+000108210716/*       02 Revised: 07/17/2021 by: Pete Helgren                              */
+000109210716/*                   Updated and consolidated jars to support Jasper Reports  */
+000110210716/*                   version 6.17.0                                           */
+000111221219/*       03 Revised  12/20/22 by: Pete Helgren                                */
+000112221219/*                   Added fonts.jar as an example as to how to include other */
+000113221219/*                   fonts in a Jasper Report                                 */
+000114080416/*   **              _______________________________________________________  */
+000115080416/*   **************************************************************************/
+000116180516             PGM        PARM(&PGMTOCALL &OUTPUTTYPE)
+000117080416
+000118180516             DCL        VAR(&PGMTOCALL) TYPE(*CHAR) LEN(10)
+000119180516             DCL        VAR(&OUTPUTTYPE) TYPE(*CHAR) LEN(4)
+000120210717
+000121221219             ADDENVVAR  ENVVAR(CLASSPATH) +
+000122221219                          VALUE('/rre/lib/RPGReportEngine.jar:/rre/lib/jasperreports-6.17.0.jar:+
+000123221219                          /rre/lib/activation.jar:/rre/lib/rrejars.jar:/rre/lib/fonts.jar') +
+000124221219                          REPLACE(*YES)
+000125100423
+000212180516             CALL       PGM(&PGMTOCALL) PARM(&OUTPUTTYPE)
+000213080416
+000214180516             ENDPGM
